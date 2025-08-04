@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at bottom, #0f0c29, #302b63, #24243e);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ✨ Starfield ambient effect */
+.starfield {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.8);
+  }
+}
+
+@keyframes moveStars {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.5);
+  }
+}
+
+.hero {
+  max-width: 600px;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+
+.headline {
+  font-size: 3.5rem;
+  background: linear-gradient(90deg, #ff6ec4, #7873f5, #4ADEDE);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: bounceIn 1.5s ease-out forwards, glow 2.5s infinite alternate;
+  opacity: 3;
+}
+
+
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.8) translateY(-100px); }
+  60% { opacity: 1; transform: scale(1.1) translateY(20px); }
+  80% { transform: scale(0.95) translateY(-10px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #ff6ec4, 0 0 20px #7873f5;
+  }
+  100% {
+    text-shadow: 0 0 10px #4ADEDE, 0 0 40px #ff6ec4;
+  }
+}
+
+
+/* 🌫 Subtext slides up smoothly */
+.subtext {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: #ccc;
+  animation: fadeUp 2s ease-in-out 0.5s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 💥 CTA with pulsing glow */
+.cta {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 12px 30px;
+  background: #ff00cc;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1rem;
+  animation: pulse 2s infinite;
+  transition: background 0.3s;
+  opacity: 0;
+  animation: fadeUp 2.5s ease-in-out 1s forwards, pulse 3s infinite 3s;
+}
+
+.cta:hover {
+  background: #e600ac;
+  box-shadow: 0 0 20px #ff00cc;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px #ff00cc; }
+  50% { box-shadow: 0 0 25px #ff00cc, 0 0 35px #3333ff; }
+  100% { box-shadow: 0 0 10px #ff00cc; }
+}
